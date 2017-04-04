@@ -1,4 +1,6 @@
-def v: String = "3.5.0"
+def v: String = "3.6.0"
+
+enablePlugins(ScalaNativePlugin)
 
 lazy val root = (project in file(".")).
   settings(
@@ -21,7 +23,5 @@ lazy val root = (project in file(".")).
     description := """a command line options parsing library""",
     libraryDependencies += "org.specs2" %% "specs2-core" % "3.8.6" % "test",
     scalacOptions ++= Seq("-language:existentials"),
-    resolvers += "sonatype-public" at "https://oss.sonatype.org/content/repositories/public",
-    // scaladoc fix
-    unmanagedClasspath in Compile += Attributed.blank(new java.io.File("doesnotexist"))
+    resolvers += "sonatype-public" at "https://oss.sonatype.org/content/repositories/public"
   )
